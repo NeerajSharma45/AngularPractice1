@@ -1,1 +1,27 @@
-<p>navbar works!</p>
+<div class="container">
+    <div class="nav-logo">
+        <a href="#"><span>eShop</span></a>
+    </div>
+
+    <div class="nav-search">
+
+        <input type="text" name="search"  #myInput
+            placeholder="search for a product..."
+            (keyup.enter)="doSearch(myInput.value)">
+        
+        <div class="icon-button" (click)="doSearch(myInput.value)">
+            <fa-icon class="search-icon" [icon]="searchIcon" ></fa-icon>
+        </div>
+
+    </div>
+
+    <div class="nav-list">
+        <div class="login">
+            <a href="#">login/register</a>
+        </div>
+        <div class="cart">
+            <fa-icon class="cart-icon" [icon]="cartIcon" ></fa-icon>
+            <a href="#">cart</a>
+        </div>
+    </div>
+</div>
