@@ -13,13 +13,21 @@
     text-decoration: none;
 }
 
+.nav-search {
+    display: flex;
+    align-items: center;
+    gap: 30px
+}
+
 .nav-search input{
     width: 600px;
-    height: 60px;
+    height: 50px;
     border-radius: 15px;
+    border: none;
+    padding-left: 20px;
 }
-.nav-search input::placeholder{
-    padding: 0px 20px;
+input:focus{
+    outline:0
 }
 
 .nav-list {
@@ -36,7 +44,14 @@
     color: white;
     text-decoration: none;
 }
-
-.cart .cart-icon {
+.cart-icon {
     color: white;
+    font-size: 25px;
+}
+.search-icon {
+    color: white;
+    font-size: 25px;
+}
+.icon-button {
+    cursor: pointer;
 }

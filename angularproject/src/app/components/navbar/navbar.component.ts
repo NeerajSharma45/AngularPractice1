@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -8,4 +9,11 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
   cartIcon = faCartShopping;
+  searchIcon = faMagnifyingGlass;
+
+  constructor() {}
+
+  doSearch(value: string) {
+    console.log(value);
+  }
 }
