@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    height: 80px;
+    padding: 0px 40px;
+    background-color: black;
+}
+
+.nav-logo a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-search input{
+    width: 600px;
+    height: 60px;
+    border-radius: 15px;
+}
+.nav-search input::placeholder{
+    padding: 0px 20px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 40px;
+}
+
+.login a {
+    color: white;
+    text-decoration: none;
+}
+
+.cart a {
+    color: white;
+    text-decoration: none;
+}
+
+.cart .cart-icon {
+    color: white;
+}
