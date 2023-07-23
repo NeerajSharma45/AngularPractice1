@@ -1,9 +1,13 @@
 .content-outer-container {
     min-height: 100%;
+    overflow: hidden;
+    background: #e5e5e5;
+    padding-bottom: 8vh;
 }
 
 .content-inner-container {
     padding-bottom: 60px;
+    padding-left: 200px;
 }
 
 .footer-container {

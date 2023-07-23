@@ -1,10 +1,21 @@
 <div class="content-outer-container">
+    <!-- SIDEBAR MENU -->
+    <app-product-category></app-product-category>
+
+    <!-- HEADER -->
+    <app-navbar></app-navbar>
+
     <div class="content-inner-container">
-        <app-navbar></app-navbar>
-        <app-login-form></app-login-form>
+        <!-- MAIN CONTENT -->
+        <div class="page-container">
+            <app-login-form></app-login-form>
+            <router-outlet></router-outlet>
+        </div>
+        
     </div>
 </div>
 
+<!-- FOOTER -->
 <div class="footer-container">
     <div class="footer-content">
         <app-footer></app-footer>
