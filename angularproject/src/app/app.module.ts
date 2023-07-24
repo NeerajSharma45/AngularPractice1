@@ -9,6 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ProductCategoryComponent } from './components/product-category/product-
     LoginFormComponent,
     NavbarComponent,
     FooterComponent,
-    ProductCategoryComponent
+    ProductCategoryComponent,
+    ProductListComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

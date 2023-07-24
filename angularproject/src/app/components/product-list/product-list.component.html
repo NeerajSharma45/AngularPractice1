@@ -1,0 +1,21 @@
+<div class="main-content">
+    <div class="container">
+        
+        <div *ngFor="let product of tempProducts">
+            <div class="product-box">
+                <a href="#">
+                    <img src="{{product.imageUrl}}" alt="{{product.name}}" class="img">
+                </a>
+                <div class="product-details">
+                    <a href="#">
+                        <h2>{{product.name}}</h2>
+                    </a>
+                    <div class="rating">Ratings {{product.rating}}⭐⭐⭐⭐</div>
+                    <div class="price">Price: {{ product.unitPrice | currency: 'INR' }}</div>
+                    <button class="btn">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

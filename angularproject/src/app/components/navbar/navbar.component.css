@@ -34,6 +34,7 @@ input:focus{
 
 .nav-list {
     display: flex;
+    align-items: center;
     gap: 40px;
 }
 
@@ -42,6 +43,10 @@ input:focus{
     text-decoration: none;
 }
 
+.cart {
+    display: flex;
+    align-items: center;
+}
 .cart a {
     color: white;
     text-decoration: none;
