@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
+})
+export class RegisterComponent {
+
+  formname: string = '';
+
+  submitForm(form: NgForm) {
+    console.log(form);
+    this.formname = form.value.name;
+    form.reset();
+  }
+}

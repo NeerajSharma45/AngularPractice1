@@ -1,0 +1,32 @@
+<div class="login">
+    <div class="login-header">
+        <h2>Login</h2>
+    </div>
+    <div class="login-body">
+        <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+            <div class="login-email">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email"
+                    placeholder="Email"
+                    ngModel required email #email="ngModel">
+
+                <div>
+                    <small *ngIf="email.invalid && email.touched">Email is a required field </small>
+                </div>
+            </div>
+            <div class="login-password">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password"
+                    placeholder="Password"
+                    ngModel required #password="ngModel">
+                
+                <div>
+                    <small *ngIf="password.invalid && password.touched">Password is a required field </small>
+                </div>
+            </div>
+            <div class="submit">
+                <button type="submit" [disabled]="!myForm.valid">Login</button>
+              </div>
+        </form>
+    </div>
+</div>
