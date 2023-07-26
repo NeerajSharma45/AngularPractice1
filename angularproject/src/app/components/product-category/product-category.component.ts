@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCategory } from '../../models/product-category';
+import { ProductCategory } from '../../models/productCategory';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-category',
@@ -8,20 +9,20 @@ import { ProductCategory } from '../../models/product-category';
 })
 export class ProductCategoryComponent implements OnInit{
 
-  productCategories: ProductCategory[] = [
-    {id: 1, categoryName: "Men's Fashion"},
-    {id: 2, categoryName: "Women's Fashion"},
-    {id: 3, categoryName: "Mobiles"},
-    {id: 4, categoryName: "Laptops"}
-  ];
+  productCategories: ProductCategory[] = [];
 
-  constructor() {  }
+  constructor(private productService: ProductService) {  }
 
   ngOnInit(): void {
     this.listProductCategories();
   }
 
   listProductCategories() {
-    // fetch product categories using service from backend
+    this.productService.getProductCategories().subscribe(
+      data => {
+        console.log('Product categories'+JSON.stringify(data));
+        this.productCategories = data;
+      }
+    )
   }
 }

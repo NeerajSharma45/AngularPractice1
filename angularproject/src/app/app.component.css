@@ -4,10 +4,12 @@
     background: #e5e5e5;
     padding-bottom: 8vh;
 }
-
 .content-inner-container {
     padding-bottom: 60px;
     padding-left: 200px;
+}
+.page-container {
+    margin-top: 80px;
 }
 
 .footer-container {

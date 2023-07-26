@@ -1,3 +1,6 @@
+/* .sidebar {
+    position:absolute;
+} */
 .menu-sidebar {
     position:fixed;
     width: 200px;

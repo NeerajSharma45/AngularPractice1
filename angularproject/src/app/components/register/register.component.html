@@ -1,55 +1,57 @@
-<div class="card">
-  <div class="card-header">
-    <h2>Register</h2>
-  </div>
-  <div class="card-body">
-    <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-      <div class="card-name">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" 
-          placeholder="First and last name" 
-          ngModel required #fname="ngModel">
-
-        <div>
-          <small *ngIf="fname.invalid && fname.touched">Name is a required field </small>
+<div class="register">
+  <div class="register-content">
+    <div class="register-header">
+      <h2>Register</h2>
+    </div>
+    <div class="register-body">
+      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+        <div class="register-name">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" 
+            placeholder="First and last name" 
+            ngModel required #fname="ngModel">
+  
+          <div>
+            <small *ngIf="fname.invalid && fname.touched">Name is a required field </small>
+          </div>
         </div>
-      </div>
-
-      <div class="card-email">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" 
-          placeholder="Email" 
-          ngModel required email #email="ngModel">
-
-        <div>
-          <small *ngIf="email.invalid && email.touched">Email is a required field </small>
+  
+        <div class="register-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" 
+            placeholder="Email" 
+            ngModel required email #email="ngModel">
+  
+          <div>
+            <small *ngIf="email.invalid && email.touched">Email is a required field </small>
+          </div>
         </div>
-      </div>
-
-      <div class="card-number">
-        <label for="number">Mobile</label>
-        <input type="text" id="number" name="mobile" 
-          placeholder="Mobile number" 
-          ngModel required #mobile="ngModel">
-
-        <div>
-          <small *ngIf="mobile.invalid && mobile.touched">Mobile is a required field </small>
+  
+        <div class="register-number">
+          <label for="number">Mobile</label>
+          <input type="text" id="number" name="mobile" 
+            placeholder="Mobile number" 
+            ngModel required #mobile="ngModel">
+  
+          <div>
+            <small *ngIf="mobile.invalid && mobile.touched">Mobile is a required field </small>
+          </div>
         </div>
-      </div>
-
-      <div class="card-pswd">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" 
-          placeholder="Password" ngModel required
-          #password="ngModel">
-          
-        <div>
-          <small *ngIf="password.invalid && password.touched">Password is a required field </small>
+  
+        <div class="register-password">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" 
+            placeholder="Password" ngModel required
+            #password="ngModel">
+            
+          <div>
+            <small *ngIf="password.invalid && password.touched">Password is a required field </small>
+          </div>
         </div>
-      </div>
-      <div class="submit">
-        <button type="submit" [disabled]="!myForm.valid">Register</button>
-      </div>
-    </form>
+        <div class="submit">
+          <button type="submit" [disabled]="!myForm.valid">Register</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
