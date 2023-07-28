@@ -1,24 +1,24 @@
 <div class="main-content">
     <div class="image-container">
-        <img src="../../../assets/laptop.jpeg" alt="product image">
+        <img src="{{ product.imageUrl }}" alt="product image" />
     </div>
     <div class="details-container">
-        <ng-container>
-            <div class="heading">
-                <h1>{{product.name}}</h1>
-            </div>
-            <div class="description">
-                <h3>Description</h3>
-                <p>{{product.description}}</p>
-            </div>
-            <div class="rating">
-                <p>Ratings {{product.rating}} ⭐⭐⭐⭐⭐</p>
-            </div>
-            <div class="price">
-                <p>Price: {{product.unitPrice | currency: 'INR'}}</p>
-            </div>
-            <button class="btn">Add to cart</button>
+        <div class="heading">
+            <h1>{{ product.name }}</h1>
+        </div>
+        <div class="description">
+            <h3>Description</h3>
+            <p>{{ product.description }}</p>
+        </div>
+        <div class="rating">
+            <p>Ratings {{ product.ratings }} ⭐⭐⭐⭐⭐</p>
+        </div>
+        <div class="price">
+            <p>Price: {{ product.unitPrice | currency : "INR" }}</p>
+        </div>
+        <button class="btn">Add to cart</button>
+        <div class="back-button">
             <a routerLink="/products">Back to Products</a>
-        </ng-container>
+        </div>
     </div>
 </div>

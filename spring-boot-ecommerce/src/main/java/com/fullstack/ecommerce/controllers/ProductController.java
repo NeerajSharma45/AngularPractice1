@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -19,8 +20,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public Page<Product> getAllProducts(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public List<Product> getAllProducts(Pageable pageable) {
+        return productRepository.findAll();
     }
 
     @GetMapping("/{id}")
@@ -29,12 +30,12 @@ public class ProductController {
     }
 
     @GetMapping("/category/{id}")
-    public Page<Product> getProductsByCategoryId(@PathVariable("id") Long id, Pageable pageable) {
-        return productRepository.findByCategoryId(id, pageable);
+    public List<Product> getProductsByCategoryId(@PathVariable("id") Long id) {
+        return productRepository.findByCategoryId(id);
     }
 
     @GetMapping("/search")
-    public Page<Product> searchProductsByName(@RequestParam("name") String name, Pageable pageable) {
-        return productRepository.findByNameContaining(name, pageable);
+    public List<Product> searchProductsByName(@RequestParam("name") String name) {
+        return productRepository.findByNameContaining(name);
     }
 }
