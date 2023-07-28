@@ -1,6 +1,8 @@
 <div class="content-outer-container">
     <!-- HEADER -->
-    <app-navbar></app-navbar>
+    <div class="navbar" *ngIf="show_navbar">
+        <app-navbar></app-navbar>
+    </div>
     
     <!-- SIDEBAR MENU -->
     <app-product-category></app-product-category>
