@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ProductCategory } from '../../models/productCategory';
+import { ProductCategory } from '../../models/product-category';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
