@@ -9,7 +9,7 @@
     bottom: 0;
     background: rgb(48, 48, 48);
     overflow-y: scroll;
-    padding-top: 80px;
+    padding-top: 25px;
 }
 .menu-sidebar::-webkit-scrollbar {
     display: none;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -13,9 +13,17 @@ export class NavbarComponent {
   cartIcon = faCartShopping;
   searchIcon = faMagnifyingGlass;
   constructor(private router: Router) {}
+  show_navbar = true;
+  prevScrollPos = window.pageYOffset;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const currentScrollPos = window.pageYOffset;
+    this.show_navbar = this.prevScrollPos > currentScrollPos;
+    this.prevScrollPos = currentScrollPos;
+  }
 
   doSearch(value: string) {
-    // console.log(value);
     this.router.navigateByUrl(`/search/${value}`);
   }
 }
