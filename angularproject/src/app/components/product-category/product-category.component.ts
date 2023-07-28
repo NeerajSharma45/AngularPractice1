@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ProductCategory } from '../../models/productCategory';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -16,7 +16,6 @@ export class ProductCategoryComponent implements OnInit{
   ngOnInit(): void {
     this.listProductCategories();
   }
-
   listProductCategories() {
     this.productService.getProductCategories().subscribe(
       data => {
