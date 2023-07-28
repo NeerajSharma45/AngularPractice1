@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,9 +13,10 @@ export class NavbarComponent {
   cartIcon = faCartShopping;
   searchIcon = faMagnifyingGlass;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   doSearch(value: string) {
-    console.log(value);
+    // console.log(value);
+    this.router.navigateByUrl(`/search/${value}`);
   }
 }

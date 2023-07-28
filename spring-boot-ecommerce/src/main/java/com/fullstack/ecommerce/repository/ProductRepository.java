@@ -8,9 +8,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    Page<Product> findByCategoryId(@Param("id") Long id, Pageable pageable);
+    List<Product> findByCategoryId(@Param("id") Long id);
 
-    Page<Product> findByNameContaining(@Param("name") String name, Pageable page);
+    List<Product> findByNameContaining(@Param("name") String name);
 }
