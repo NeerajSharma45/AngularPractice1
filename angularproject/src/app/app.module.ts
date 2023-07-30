@@ -13,12 +13,11 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartViewComponent } from './components/cart-view/cart-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +27,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     ProductListComponent,
     ProductDetailsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CartViewComponent
   ],
   imports: [
     BrowserModule,
