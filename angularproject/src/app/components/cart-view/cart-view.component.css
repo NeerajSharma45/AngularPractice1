@@ -1,4 +1,58 @@
 .cart-header{
-    padding-left: 500px;
-    padding-top: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  :host {
+    display: block;
+    margin: 0 auto;
+  }
+  .img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  .primary-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .danger-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn-padding{
+    padding-top: 10px;
+  }
+  .BuyingOption{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    padding-bottom: 20px;
+  }
