@@ -14,12 +14,16 @@
 }
 
 .login-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+}
+
+.login-header h2 {
+  margin: 0;
 }
 
 .login-body {
@@ -30,17 +34,21 @@
   margin-bottom: 0;
 }
 
-.login-body form > div {
-  margin-bottom: 15px;
+mat-form-field {
+  width: 100%;
 }
 
-.login-body label {
+/* .login-body form > div {
+  margin-bottom: 15px;
+} */
+
+/* .login-body label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-}
+} */
 
-.login-email {
+/* .login-email {
   padding-right: 20px;
 }
 .login-password {
@@ -54,7 +62,7 @@ input {
   width: 100%;
   padding: 10px;
   border-radius: 4px;
-}
+} */
 
 .login button[type="submit"] {
   width: 50%;
@@ -65,16 +73,16 @@ input {
   cursor: pointer;
 }
 
-.login button[type="submit"] :hover {
+.login button[type="submit"]:hover {
   background-color: #008CBA;
   color: white;
 }
 .submit {
   text-align: center;
 }
-input.ng-invalid.ng-touched {
+/* input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 small {
   color: red;
-}
+} */
