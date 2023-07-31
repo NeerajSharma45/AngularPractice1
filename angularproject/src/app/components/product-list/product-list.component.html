@@ -14,7 +14,18 @@
                     </div>
                     <div class="rating">Ratings {{ product.ratings }} ⭐⭐⭐⭐⭐</div>
                     <div class="price">Price: {{ product.unitPrice | currency: 'INR' }}</div>
-                    <button class="btn" (click)="addToCart(product)">Add to cart</button>
+
+                    <div *ngIf="getProductQuantity(product.id) > 0; else AddRemoveBtn">
+                        <div class="add-remove-buttons">
+                            <div  class="remove-icon" (click)="decrementQuantity(product)"><mat-icon>remove_circle_outline</mat-icon></div>
+                            <span> {{ productQuantity }} </span>
+                            <div class="add-icon" (click)="addToCart(product)"><mat-icon>add_circle_outline</mat-icon></div>
+                        </div>
+                    </div>
+                    
+                    <ng-template #AddRemoveBtn>
+                        <button class="btn" (click)="addToCart(product)">Add to cart</button>
+                    </ng-template>
                 </div>
             </div>
         </div>

@@ -13,19 +13,9 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductListComponent implements OnInit{
   products: Product[] = [];
   currentCategoryId: number = 1;
-  // previousCategoryId: number = 1;
   searchMode: boolean = false;
 
-  // thePageNumber: number = 1;
-  // thePageSize: number = 5;
-  // theTotalElements: number = 0;
-
-  // tempProducts: Product[] = [
-  //   { id: 1, name: 'Acer Nitro 5', description: 'Gaming laptop', unitPrice: 75000, imageUrl: '../../../assets/laptop.jpeg', unitsInStock: 10, rating: 5},
-  //   { id: 1, name: 'Acer Nitro 5', description: 'Gaming laptop', unitPrice: 75000, imageUrl: '../../../assets/laptop.jpeg', unitsInStock: 10, rating: 5},
-  //   { id: 1, name: 'Acer Nitro 5', description: 'Gaming laptop', unitPrice: 75000, imageUrl: '../../../assets/laptop.jpeg', unitsInStock: 10, rating: 5},
-  //   { id: 1, name: 'Acer Nitro 5', description: 'Gaming laptop', unitPrice: 75000, imageUrl: '../../../assets/laptop.jpeg', unitsInStock: 10, rating: 5},
-  // ]
+  productQuantity: number = 0;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService) {  }
 
@@ -80,5 +70,17 @@ export class ProductListComponent implements OnInit{
     let theCartItem = new CartItem(product);
 
     this.cartService.addToCart(theCartItem);
+  }
+
+  decrementQuantity(product: Product) {
+    let theCartItem = new CartItem(product);
+
+    this.cartService.decrementQuantity(theCartItem);
+  }
+
+  getProductQuantity(productId: number) {
+    this.productQuantity = this.cartService.getCartItemQuantity(productId);
+    
+    return this.productQuantity;
   }
 }

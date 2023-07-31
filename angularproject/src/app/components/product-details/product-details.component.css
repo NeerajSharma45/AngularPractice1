@@ -40,7 +40,6 @@ img {
     text-decoration: none;
     color: black;
     width:fit-content;
-    margin-top: auto;
     cursor: pointer;
     color: #008CBA;
 }
@@ -70,4 +69,18 @@ button {
 .back-button {
     position: absolute;
     bottom: 0;
+}
+
+.add-remove-buttons {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 30px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 50px;
 }

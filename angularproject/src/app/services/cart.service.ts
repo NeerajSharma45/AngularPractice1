@@ -16,11 +16,11 @@ export class CartService {
   addToCart(theCartItem: CartItem) {
     // check if we already have item in cart
     let alreadyExistInCart: boolean = false;
-    let existingCartItem: any ;
+    let existingCartItem!: CartItem ;
 
-    if(this.cartItem.length >0) {
+    if(this.cartItem.length > 0) {
       // find item in cart based on item id
-      existingCartItem = this.cartItem.find( item => { return item.id == theCartItem.id } )
+      existingCartItem = this.cartItem.find( item => { return item.id == theCartItem.id } )!;
       
       // check if we found it
       alreadyExistInCart = (existingCartItem != undefined);
@@ -32,7 +32,7 @@ export class CartService {
       // just add item to the array
       this.cartItem.push(theCartItem);
     }
-    console.log("items "+JSON.stringify(this.cartItem))
+    // console.log("items "+JSON.stringify(this.cartItem))
     this.computeTotals();
   }
 
@@ -50,9 +50,22 @@ export class CartService {
   }
 
   decrementQuantity(theCartItem: CartItem) {
-    theCartItem.quantity--;
+    // check if we already have item in cart
+    let alreadyExistInCart: boolean = false;
+    let existingCartItem!: CartItem ;
 
-    if(theCartItem.quantity === 0) {
+    if(this.cartItem.length > 0) {
+      // find item in cart based on item id
+      existingCartItem = this.cartItem.find( item => { return item.id == theCartItem.id } )!;
+      
+      // check if we found it
+      alreadyExistInCart = (existingCartItem != undefined);
+    }
+    if(alreadyExistInCart) {
+      existingCartItem.quantity--;
+    }
+
+    if(existingCartItem.quantity === 0) {
       this.remove(theCartItem);
     }
     else {
@@ -64,10 +77,18 @@ export class CartService {
     const index = this.cartItem.findIndex(
       item => item.id === theCartItem.id
     )
-
     if(index >= 0) {
       this.cartItem.splice(index,1);
       this.computeTotals();
     }
+  }
+
+  getCartItemQuantity(productId: number) {
+    const cartItem = this.cartItem.find( item => item.id === productId);
+
+    if(cartItem != undefined) {
+      return cartItem.quantity;
+    }
+    return 0;
   }
 }

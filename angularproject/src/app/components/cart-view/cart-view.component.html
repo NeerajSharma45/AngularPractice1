@@ -28,7 +28,9 @@
                                     <div class="add-icon" (click)="addItem(product)"><mat-icon>add_circle_outline</mat-icon></div>
                                 </div>
                                 
-                                <button mat-raised-button color="warn" (click)="removeItem(product)">Remove Item</button>
+                                <button mat-raised-button color="warn" (click)="removeItem(product)">Remove 
+                                    <mat-icon>delete_outline</mat-icon>
+                                </button>
                                 <p class="btn-padding">Subtotal: ₹{{product.quantity*(product.unitPrice)}}</p>
                             </div>
                             
@@ -37,7 +39,7 @@
                     <tr>
                         <td colspan="2"></td>
                         <td class="cart-total">
-                            <p>Total Quantity: {{'totalquantity'}}</p>
+                            <p>Total Quantity: {{ totalQuantity }}</p>
                             <p>Shipping: FREE</p>
                             <p>Total Price {{ totalPrice | currency: 'INR' }}</p>
                             <button mat-raised-button color="accent">
@@ -51,6 +53,9 @@
         <!-- if cart is empty -->
         <div *ngIf="cartItems.length === 0" class="cart-alert" >
             Your shopping cart is empty!
+        </div>
+        <div class="back-button">
+            <a routerLink="/products">Back to Products</a>
         </div>
     </div>    
 </div>

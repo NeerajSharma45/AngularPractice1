@@ -4,58 +4,81 @@
       <h2>Register</h2>
     </div>
     <div class="register-body">
-      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
         <div class="register-name">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" 
-            placeholder="First and last name" 
-            ngModel required #fname="ngModel">
-  
-          <div>
-            <small *ngIf="fname.invalid && fname.touched">Name is a required field </small>
-          </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Name"
+              formControlName="name"
+              required
+            />
+            <mat-icon matSuffix>input</mat-icon>
+            <mat-error *ngIf="!reactiveForm.get('email')!.valid">Name is required</mat-error>
+          </mat-form-field>
         </div>
-  
+
         <div class="register-email">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" 
-            placeholder="Email" 
-            ngModel required email #email="ngModel">
-  
-          <div>
-            <small *ngIf="email.invalid && email.touched">Email is a required field </small>
-          </div>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="abc@example.com"
+              formControlName="email"
+              required
+            />
+            <button mat-icon-button matSuffix>
+              <mat-icon>email</mat-icon>
+            </button>
+            <mat-error *ngIf="reactiveForm.get('email')!.hasError('required')">Mail is required</mat-error>
+            <mat-error *ngIf="reactiveForm.get('email')!.hasError('email')">Enter a valid mail</mat-error>
+          </mat-form-field>
         </div>
-  
+
         <div class="register-number">
-          <label for="number">Mobile</label>
-          <input type="text" id="number" name="mobile" 
-            placeholder="Mobile number" 
-            ngModel required #mobile="ngModel">
-  
-          <div>
-            <small *ngIf="mobile.invalid && mobile.touched">Mobile is a required field </small>
-          </div>
+          <mat-form-field>
+            <mat-label>Mobile</mat-label>
+            <input matInput formControlName="mobile" required />
+            <mat-icon matSuffix> phone</mat-icon>
+            <mat-error *ngIf="reactiveForm.get('mobile')!.hasError('required')">Mobile number is required</mat-error>
+            <mat-error *ngIf="reactiveForm.get('mobile')!.hasError('pattern')">Please, Enter 10 digit Mobile Number.</mat-error>
+          </mat-form-field>
         </div>
-  
+
         <div class="register-password">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" 
-            placeholder="Password" ngModel required
-            #password="ngModel">
-            
-          <div>
-            <small *ngIf="password.invalid && password.touched">Password is a required field </small>
-          </div>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              formControlName="password"
+              [type]="hide ? 'password' : 'text'"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+            <mat-error *ngIf="reactiveForm.get('password')!.hasError('required')">Enter password</mat-error>
+            <mat-error *ngIf="reactiveForm.get('password')!.hasError('pattern')">Password should be 8 characters in length, Lowercase letters, Uppercase letters, Numbers, Special characters</mat-error>
+          </mat-form-field>
         </div>
+
         <div class="submit">
-          <button type="submit" [disabled]="!myForm.valid">Register</button>
+          <button type="submit" [disabled]="!reactiveForm.valid">Login</button>
         </div>
+
         <div class="register-login">
-          <p>Already have an account
-              <a routerLink="/login">Login</a>
+          <p>
+            Already have an account
+            <a routerLink="/login">Login</a>
           </p>
-      </div>
+        </div>
       </form>
     </div>
   </div>

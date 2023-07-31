@@ -54,7 +54,18 @@ h1 {
 .cart-total {
   font-weight: bold;
 }
-.cart-total button a {
+.cart-total button a{
   text-decoration: none;
   color: black;
+}
+.back-button {
+  margin-top: 20px;
+}
+.back-button a{
+  text-decoration: none;
+  color: black;
+  width:fit-content;
+  margin-top: auto;
+  cursor: pointer;
+  color: #008CBA;
 }
