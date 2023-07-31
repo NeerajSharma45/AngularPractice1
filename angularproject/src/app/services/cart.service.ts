@@ -6,7 +6,6 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-
   cartItem: CartItem[] = [];
 
   totalPrice: Subject<number> = new Subject<number>;
@@ -17,15 +16,15 @@ export class CartService {
   addToCart(theCartItem: CartItem) {
     // check if we already have item in cart
     let alreadyExistInCart: boolean = false;
-    let existingCartItem!: CartItem;
+    let existingCartItem: any ;
 
-    if(this.cartItem.length > 0) {
+    if(this.cartItem.length >0) {
       // find item in cart based on item id
-      existingCartItem = this.cartItem.find( item => { theCartItem.id === item.id })!;
+      existingCartItem = this.cartItem.find( item => { return item.id == theCartItem.id } )
+      
       // check if we found it
       alreadyExistInCart = (existingCartItem != undefined);
     }
-
     if(alreadyExistInCart) {
       existingCartItem.quantity++;
     }
@@ -33,7 +32,7 @@ export class CartService {
       // just add item to the array
       this.cartItem.push(theCartItem);
     }
-
+    console.log("items "+JSON.stringify(this.cartItem))
     this.computeTotals();
   }
 

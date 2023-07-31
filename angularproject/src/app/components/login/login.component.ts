@@ -8,35 +8,19 @@ import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit{
 
-  hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  
+  hide: boolean = true;
   reactiveForm!: FormGroup;
 
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
-      email: new FormControl(null),
-      password: new FormControl(null)
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
     })
   }
 
   onSubmit() {
-    console.log(this.reactiveForm);
+    console.log(this.reactiveForm.value.email);
+    console.log(this.reactiveForm.value.password);
+    this.reactiveForm.reset();
   }
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  // formEmail: string = '';
-
-  // submitForm(form: NgForm) {
-  //   console.log(form);
-  //   // this.formEmail = form.value.email;
-  //   form.reset();
-  // }
 }

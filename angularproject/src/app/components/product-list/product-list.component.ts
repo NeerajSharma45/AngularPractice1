@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem } from 'src/app/models/cart-items';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -25,7 +27,7 @@ export class ProductListComponent implements OnInit{
   //   { id: 1, name: 'Acer Nitro 5', description: 'Gaming laptop', unitPrice: 75000, imageUrl: '../../../assets/laptop.jpeg', unitsInStock: 10, rating: 5},
   // ]
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {  }
+  constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService) {  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(()=> {
@@ -74,4 +76,9 @@ export class ProductListComponent implements OnInit{
     )
   }
 
+  addToCart(product: Product){
+    let theCartItem = new CartItem(product);
+
+    this.cartService.addToCart(theCartItem);
+  }
 }
