@@ -14,7 +14,7 @@
                     </div>
                     <div class="rating">Ratings {{ product.ratings }} ⭐⭐⭐⭐⭐</div>
                     <div class="price">Price: {{ product.unitPrice | currency: 'INR' }}</div>
-                    <button class="btn">Add to cart</button>
+                    <button class="btn" (click)="addToCart(product)">Add to cart</button>
                 </div>
             </div>
         </div>

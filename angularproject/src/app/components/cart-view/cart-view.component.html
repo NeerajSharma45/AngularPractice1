@@ -1,48 +1,56 @@
-<div class="cart-header">
-    <h1>Products in your cart are:</h1>
-    <!--<div class="cart_container" *ngFor="let product of products">
-        <div>
-            <h2>{{product.id+". "}}{{product.name}}</h2>
-            <p>{{product.description}}</p>
-            <img src="{{product.imageUrl}}" alt="{{product.name}}" class="img">
-            <p>{{quantity*(product.unitPrice)}}</p>
-            <button (click)="subtract()">-</button>
-            <button>{{quantity}}</button>
-            <button (click)="add()">+</button>
+<div class="main-container">
+    <div class="cart-container">
+        <div *ngIf="cartItems.length > 0">
+            <h1>Products in your cart are:</h1>
+            <table >
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Product Image</th>
+                        <th style="width: 50%;">Product Details</th>
+                        <th style="width: 30%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of cartItems">
+                        <td >
+                            <img src="{{product.imageUrl}}" alt="{{product.name}}" class="img">
+                        </td>
+                        <td>
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.unitPrice | currency:'INR'}}</p>
+                        </td>
+                        <td>
+                            <div class="cart-items">
+                                <label>Qty:</label>
+                                <div class="add-remove-buttons">
+                                    <div  class="remove-icon" (click)="decrementQuantity(product)"><mat-icon>remove_circle_outline</mat-icon></div>
+                                    <span> {{product.quantity}} </span>
+                                    <div class="add-icon" (click)="addItem(product)"><mat-icon>add_circle_outline</mat-icon></div>
+                                </div>
+                                
+                                <button mat-raised-button color="warn" (click)="removeItem(product)">Remove Item</button>
+                                <p class="btn-padding">Subtotal: ₹{{product.quantity*(product.unitPrice)}}</p>
+                            </div>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td class="cart-total">
+                            <p>Total Quantity: {{'totalquantity'}}</p>
+                            <p>Shipping: FREE</p>
+                            <p>Total Price {{ totalPrice | currency: 'INR' }}</p>
+                            <button mat-raised-button color="accent">
+                                <a href="#">Checkout</a>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div> -->
-    <table border="1">
-        <thead>
-            <tr>
-                <th style="width: 20%;">Product Image</th>
-                <th style="width: 30%;">Product</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td >
-                    <img src="{{product.imageUrl}}" alt="{{product.name}}" class="img">
-                </td>
-                <td>
-                    <h2>{{product.name}}</h2>
-                    <p>{{product.description}}</p>
-                    <p>UnitPrice: ₹{{product.unitPrice}}</p>
-                </td>
-                <td>
-                    <h1>Qty:</h1>
-                    <button (click)="product.quantity=subtract(product.quantity,product.unitPrice)" class="primary-button">-</button><span> {{product.quantity}} </span>
-                    <button (click)="product.quantity=add(product.quantity,product.unitPrice)" class="primary-button">+</button>
-                    <div class="btn-padding">
-                        <button class="danger-button">Remove Item</button>
-                    </div>
-                    <h3 class="btn-padding">Subtotal: ₹{{product.quantity*(product.unitPrice)}}</h3>
-                </td>
-              </tr>
-        </tbody>
-    </table>
-    <div class="BuyingOption">
-        <h3>Total Price: ₹{{TotalQty}}</h3>
-        <button class="primary-button">Procced TO Buy</button>
-    </div>
+        <!-- if cart is empty -->
+        <div *ngIf="cartItems.length === 0" class="cart-alert" >
+            Your shopping cart is empty!
+        </div>
+    </div>    
 </div>

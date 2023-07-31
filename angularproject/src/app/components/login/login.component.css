@@ -38,32 +38,6 @@ mat-form-field {
   width: 100%;
 }
 
-/* .login-body form > div {
-  margin-bottom: 15px;
-} */
-
-/* .login-body label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-} */
-
-/* .login-email {
-  padding-right: 20px;
-}
-.login-password {
-  padding-right: 20px;
-}
-.login-body input {
-  border: 1px solid #ccc;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 4px;
-} */
-
 .login button[type="submit"] {
   width: 50%;
   padding: 10px 20px;
@@ -80,9 +54,11 @@ input {
 .submit {
   text-align: center;
 }
-/* input.ng-invalid.ng-touched {
-  border: 1px solid red;
+.login-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-small {
-  color: red;
-} */
+.login-register p {
+  margin: 10px;
+}

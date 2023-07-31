@@ -81,3 +81,12 @@ input.ng-invalid.ng-touched {
 small {
   color: red;
 }
+
+.register-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register-login p {
+  margin: 10px;
+}

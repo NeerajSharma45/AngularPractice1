@@ -16,7 +16,7 @@
         <div class="price">
             <p>Price: {{ product.unitPrice | currency : "INR" }}</p>
         </div>
-        <button class="btn">Add to cart</button>
+        <button class="btn" (click)="addToCart(product)">Add to cart</button>
         <div class="back-button">
             <a routerLink="/products">Back to Products</a>
         </div>

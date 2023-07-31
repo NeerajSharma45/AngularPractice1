@@ -1,7 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -9,12 +10,23 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
   cartIcon = faCartShopping;
   searchIcon = faMagnifyingGlass;
-  constructor(private router: Router) {}
+  totalQuantity: number = 0;
+  
   show_navbar = true;
   prevScrollPos = window.pageYOffset;
+
+  constructor(private router: Router, private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.cartService.totalQuantity.subscribe(
+      data => {
+        this.totalQuantity = data
+      }
+    )
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
