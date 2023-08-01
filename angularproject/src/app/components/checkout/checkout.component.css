@@ -1,0 +1,70 @@
+.main-content {
+    padding: 40px;
+}
+
+.form-area {
+    width: 60%;
+    position:relative;
+    margin-bottom:45px;
+    padding:50px 20px;
+    border:3px solid #ccc;
+}
+
+.form-area h3{
+    position:absolute;
+    top:-26px;
+    left:15px;
+    background:#e5e5e5;
+    padding:10px 20px;
+    font-weight:500;
+    z-index:1;
+    display:inline-block
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.input-name {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+}
+
+.input-name .input-space{
+    width: 45%;
+}
+
+input[type=text] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid gray;
+    width: 100%;
+}
+.expiry-date {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20%;
+}
+.date {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.expiry-date select, .date select {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid gray;
+    width: 100%;
+}

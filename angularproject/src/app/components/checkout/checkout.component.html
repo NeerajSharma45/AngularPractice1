@@ -1,0 +1,101 @@
+<div class="main-content">
+    <div class="section-content">
+
+        <div class="form-area">
+            <h3>Customer</h3>
+            <div class="form-input">
+                <div class="input-name">
+                    <div >
+                        <input type="text" placeholder="First Name">
+                    </div>
+                    <div >
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="input-email">
+                    <input type="text" placeholder="Email Address">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-area">
+            <h3>Shipping Address</h3>
+            <div class="form-input">
+                
+                <div class="input-street">
+                    <input type="text" placeholder="Street">
+                </div>
+            
+                <div class="input-city">
+                    <input type="text" placeholder="City">
+                </div>
+
+                <div class="input-state">
+                    <input type="text" placeholder="State">
+                </div>
+            
+                <div class="input-pin">
+                    <input type="text" placeholder="Pin Code / Postal Code">
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="form-area">
+            <h3>Credit Card</h3>
+            <div class="form-input">
+                <div class="date">
+                    <select>
+                        <option>Visa</option>
+                        <option>Mastercard</option>
+                        <option>Rupay</option>
+                    </select>
+                </div>
+                
+                <div class="card-name">
+                    <input type="text" placeholder="Name on card">
+                </div>
+                
+                <div class="card-number">
+                    <input type="text" placeholder="Card number">
+                </div>
+            
+                <div class="card-cvv">
+                    <input type="text" placeholder="CVV number">
+                </div>
+
+                <div class="expiry-label"> <label class="date">Expiration Date</label></div>
+                <div class="expiry-date">
+                    <div class="date">
+                        <select>
+                            <option>Month</option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                        </select>
+                    </div>
+                    <div class="date">
+                        <select>
+                            <option>Year</option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-area">
+            <h3>Review Your Order</h3>
+            <b>Total Quantity: {{ totalQuantity }}</b>
+            <h4>Shipping: FREE</h4>
+            <B>Total Price: {{ totalPrice | currency: 'INR' }}</B>
+        </div>
+        <div class="purchase-btn">
+            <button mat-raised-button color="warn" >Purchase</button>
+        </div>
+    </div>
+</div>
