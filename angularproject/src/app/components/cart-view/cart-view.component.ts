@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-items';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
@@ -16,6 +16,15 @@ export class CartViewComponent implements OnInit {
   constructor(private cartService: CartService) {  }
 
   ngOnInit() {
+    this.listCartItems();
+  }
+
+  listCartItems(){
+    // this.cartService.getAllCartItems().subscribe(
+    //   data => {
+    //     this.cartItems = data;
+    //   }
+    // );
     this.listCartDetails();
   }
 
@@ -26,27 +35,36 @@ export class CartViewComponent implements OnInit {
       data => {
         this.totalPrice = data;
       }
-    )
+    );
 
     this.cartService.totalQuantity.subscribe (
       data => {
         this.totalQuantity = data;
       }
-    )
+    );
     
     this.cartService.computeTotals();
   }
   
   addItem(cartItem: CartItem) {
     this.cartService.addToCart(cartItem);
+    // this.cartService.addItemValue(cartItem).subscribe(
+    //   ()=>this.listCartItems()
+    // );
   }
 
   decrementQuantity(cartItem: CartItem) {
     this.cartService.decrementQuantity(cartItem);
+    // this.cartService.decrementQuantity(cartItem).subscribe(
+    //   ()=>this.listCartItems()
+    // );
   }
 
   removeItem(cartItem: CartItem) {
     this.cartService.remove(cartItem);
+    // this.cartService.remove(cartItem).subscribe(
+    //   ()=>this.listCartItems()
+    // );
   }
 
 }

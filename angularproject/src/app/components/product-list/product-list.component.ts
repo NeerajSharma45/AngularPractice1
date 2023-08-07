@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-items';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
@@ -14,6 +15,7 @@ export class ProductListComponent implements OnInit{
   products: Product[] = [];
   currentCategoryId: number = 1;
   searchMode: boolean = false;
+  responseMessage: string = '';
 
   productQuantity: number = 0;
 
@@ -68,7 +70,6 @@ export class ProductListComponent implements OnInit{
 
   addToCart(product: Product){
     let theCartItem = new CartItem(product);
-
     this.cartService.addToCart(theCartItem);
   }
 

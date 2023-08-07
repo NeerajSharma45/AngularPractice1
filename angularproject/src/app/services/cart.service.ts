@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart-items';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   cartItem: CartItem[] = [];
+  private baseUrl='http://localhost:8080/api';
 
   totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalQuantity: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   addToCart(theCartItem: CartItem) {
     // check if we already have item in cart
@@ -31,10 +33,35 @@ export class CartService {
     else {
       // just add item to the array
       this.cartItem.push(theCartItem);
-    }
+      }
     // console.log("items "+JSON.stringify(this.cartItem))
     this.computeTotals();
   }
+  
+  // getAllCartItems():Observable<any>{
+  //   const url=`${this.baseUrl}/cart-items`;
+  //   return this.httpClient.get<any>(url);
+  // }
+
+  // addToCart(theCartItem: CartItem):Observable<any>{
+  //   const url=`${this.baseUrl}/pushedCartItem`;
+  //   return this.httpClient.post<any>(url,theCartItem);
+  // }
+
+  // addItemValue(theCartItem:CartItem):Observable<any>{
+  //   const url=`${this.baseUrl}/updatedCartItem`;
+  //   return this.httpClient.put<any>(url,theCartItem);
+  // }
+
+  // remove(theCartItem: CartItem):Observable<any>{
+  //   const url=`${this.baseUrl}/deleteCartItem/${theCartItem.id}`;
+  //   return this.httpClient.delete<any>(url);
+  // }
+
+  // decrementQuantity(theCartItem: CartItem):Observable<any> {
+  //   const url=`${this.baseUrl}/decrementCartItem`;
+  //   return this.httpClient.put<any>(url,theCartItem);
+  // }
 
   computeTotals() {
     let totalPrice = 0;
@@ -47,6 +74,7 @@ export class CartService {
 
     this.totalPrice.next(totalPrice);
     this.totalQuantity.next(totalQuantity);
+    console.log(totalPrice+" "+totalQuantity);
   }
 
   decrementQuantity(theCartItem: CartItem) {
@@ -91,4 +119,5 @@ export class CartService {
     }
     return 0;
   }
+
 }

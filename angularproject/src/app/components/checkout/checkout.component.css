@@ -2,8 +2,12 @@
     padding: 40px;
 }
 
-.form-area {
+form{
     width: 60%;
+}
+
+.form-area {
+    width: 100%;
     position:relative;
     margin-bottom:45px;
     padding:50px 20px;
@@ -33,14 +37,17 @@
     flex-direction: column;
     gap: 30px;
 }
-.input-name {
+.input-name,.input-email {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10%;
+    gap: 40px;
+    align-items: center;
+    width: 100%;
 }
 
-.input-name .input-space{
-    width: 45%;
+.input-first, .input-last{
+    display: flex;
+    align-items: center;
+    gap: 50px;
 }
 
 input[type=text] {
@@ -50,7 +57,7 @@ input[type=text] {
     outline: 1px solid gray;
     width: 100%;
 }
-.expiry-date {
+.expiry-date{
     display: flex;
     flex-wrap: wrap;
     gap: 20%;
@@ -68,3 +75,48 @@ input[type=text] {
     outline: 1px solid gray;
     width: 100%;
 }
+
+.input-country, .input-street, .input-city, .input-pin, 
+.input-card-type, .input-card-name, .input-card-number, .input-card-cvv{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.purchase-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.form-option select{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    outline: 1px solid gray;
+    width: 100%;
+}
+
+.input-label {
+    width: 100px;
+}
+.input-feild {
+    width: 80%;
+}
+.form-option {
+    width: 40%;
+}
+.errors {
+    display: flex;
+    gap: 200px;
+}
+.error small{
+    color: red;
+}
+
+div.error {
+    margin-top: -15px;
+}
+
+/* .ng-invalid .ng-touched input{
+    border: 1px solid red;
+} */
