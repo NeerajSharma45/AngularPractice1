@@ -1,15 +1,15 @@
 package com.fullstack.ecommerce.services;
 
-import com.fullstack.ecommerce.entity.CartItem;
+import com.fullstack.ecommerce.entity.OrderItem;
 
 import java.util.List;
 
 public interface CartService {
-    CartItem addToCart(CartItem cartItem);
-    List<CartItem> getAllCartItems();
+    OrderItem addToCart(OrderItem orderItem);
+    List<OrderItem> getAllCartItems();
 //    CartItem getCartItemById(Long id);
-    void updateCartItem(CartItem cartItem);
+    void updateCartItem(OrderItem orderItem);
     void deleteCartItem(Long id);
 
-    void decreaseCartItem(CartItem cartItem);
+    void decreaseCartItem(OrderItem orderItem);
 }

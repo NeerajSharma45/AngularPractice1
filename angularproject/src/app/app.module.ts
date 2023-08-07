@@ -21,6 +21,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatTableModule } from '@angular/material/table';
     ProductDetailsComponent,
     RegisterComponent,
     LoginComponent,
-    CartViewComponent
+    CartViewComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

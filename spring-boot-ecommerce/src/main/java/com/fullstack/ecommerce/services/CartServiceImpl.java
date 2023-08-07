@@ -1,6 +1,6 @@
 package com.fullstack.ecommerce.services;
 
-import com.fullstack.ecommerce.entity.CartItem;
+import com.fullstack.ecommerce.entity.OrderItem;
 import com.fullstack.ecommerce.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +15,12 @@ public class CartServiceImpl implements CartService{
         this.cartRepository = cartRepository;
     }
     @Override
-    public CartItem addToCart(CartItem cartItem) {
-        return cartRepository.save(cartItem);
+    public OrderItem addToCart(OrderItem orderItem) {
+        return cartRepository.save(orderItem);
     }
 
     @Override
-    public List<CartItem> getAllCartItems() {
+    public List<OrderItem> getAllCartItems() {
         return cartRepository.findAll();
     }
 
@@ -30,10 +30,10 @@ public class CartServiceImpl implements CartService{
 //    }
 
     @Override
-    public void updateCartItem(CartItem cartItem) {
-        CartItem existingCartItem = cartRepository.findById(cartItem.getId()).orElse(null);
-        existingCartItem.setQuantity(cartItem.getQuantity()+1);
-        cartRepository.save(existingCartItem);
+    public void updateCartItem(OrderItem orderItem) {
+        OrderItem existingOrderItem = cartRepository.findById(orderItem.getId()).orElse(null);
+        existingOrderItem.setQuantity(orderItem.getQuantity()+1);
+        cartRepository.save(existingOrderItem);
     }
 
     @Override
@@ -42,13 +42,13 @@ public class CartServiceImpl implements CartService{
     }
 
     @Override
-    public void decreaseCartItem(CartItem cartItem) {
-        CartItem existingCartItem = cartRepository.findById(cartItem.getId()).orElse(null);
-        if(existingCartItem.getQuantity()>1){
-            existingCartItem.setQuantity(cartItem.getQuantity()-1);
-            cartRepository.save(existingCartItem);
+    public void decreaseCartItem(OrderItem orderItem) {
+        OrderItem existingOrderItem = cartRepository.findById(orderItem.getId()).orElse(null);
+        if(existingOrderItem.getQuantity()>1){
+            existingOrderItem.setQuantity(orderItem.getQuantity()-1);
+            cartRepository.save(existingOrderItem);
         }
         else
-            deleteCartItem(cartItem.getId());
+            deleteCartItem(orderItem.getId());
     }
 }

@@ -14,7 +14,9 @@
 }
 
 .register-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
@@ -22,38 +24,16 @@
   border-top-right-radius: 5px;
 }
 
+.register-header h2 {
+  margin: 0;
+}
+
 .register-body {
   padding: 20px;
 }
 
-.register-body form > div {
-  margin-bottom: 15px;
-}
-
-.register-body label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.register-name {
-  padding-right: 20px;
-}
-.register-number {
-  padding-right: 20px;
-}
-.register-email {
-  padding-right: 20px;
-}
-.register-password {
-  padding-right: 20px;
-}
-
-.register-body input{
-  border: 1px solid #ccc;
+mat-form-field {
   width: 100%;
-  padding: 10px;
-  border-radius: 4px;
 }
 
 .register-body button[type="submit"] {
@@ -72,14 +52,6 @@
 
 .submit {
   text-align: center;
-}
-
-input.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
-
-small {
-  color: red;
 }
 
 .register-login {

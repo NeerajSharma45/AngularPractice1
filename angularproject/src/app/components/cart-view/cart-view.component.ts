@@ -20,16 +20,16 @@ export class CartViewComponent implements OnInit {
   }
 
   listCartItems(){
-    this.cartService.getAllCartItems().subscribe(
-      data => {
-        this.cartItems = data;
-      }
-    );
-    // this.listCartDetails();
+    // this.cartService.getAllCartItems().subscribe(
+    //   data => {
+    //     this.cartItems = data;
+    //   }
+    // );
+    this.listCartDetails();
   }
 
   listCartDetails() {
-    // this.cartItems = this.cartService.cartItem;
+    this.cartItems = this.cartService.cartItem;
 
     this.cartService.totalPrice.subscribe(
       data => {
@@ -47,21 +47,24 @@ export class CartViewComponent implements OnInit {
   }
   
   addItem(cartItem: CartItem) {
-    this.cartService.addItemValue(cartItem).subscribe(
-      ()=>this.listCartItems()
-    );
+    this.cartService.addToCart(cartItem);
+    // this.cartService.addItemValue(cartItem).subscribe(
+    //   ()=>this.listCartItems()
+    // );
   }
 
   decrementQuantity(cartItem: CartItem) {
-    this.cartService.decrementQuantity(cartItem).subscribe(
-      ()=>this.listCartItems()
-    );
+    this.cartService.decrementQuantity(cartItem);
+    // this.cartService.decrementQuantity(cartItem).subscribe(
+    //   ()=>this.listCartItems()
+    // );
   }
 
   removeItem(cartItem: CartItem) {
-    this.cartService.remove(cartItem).subscribe(
-      ()=>this.listCartItems()
-    );
+    this.cartService.remove(cartItem);
+    // this.cartService.remove(cartItem).subscribe(
+    //   ()=>this.listCartItems()
+    // );
   }
 
 }

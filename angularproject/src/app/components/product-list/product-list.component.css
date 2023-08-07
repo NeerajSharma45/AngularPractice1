@@ -11,7 +11,7 @@
 .product-box {
   box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
   width: 230px;
-  height: 400px;
+  height:fit-content;
   overflow: hidden;
 }
 
@@ -45,6 +45,7 @@ h2 {
 }
 
 button {
+  width: 100%;
   padding: 8px 16px;
   text-align: center;
   text-decoration: none;
@@ -64,4 +65,16 @@ button {
 .btn:hover {
   background-color: #008CBA;
   color: white;
+}
+
+.add-icon mat-icon,
+.remove-icon mat-icon {
+  cursor: pointer;
+}
+.add-remove-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }

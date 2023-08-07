@@ -1,15 +1,11 @@
 package com.fullstack.ecommerce.controllers;
-import java.util.logging.Logger;
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.fullstack.ecommerce.entity.CartItem;
-import com.fullstack.ecommerce.repository.CartRepository;
+import com.fullstack.ecommerce.entity.OrderItem;
 import com.fullstack.ecommerce.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -22,15 +18,15 @@ public class CartController {
     }
 
     @PostMapping("/api/pushedCartItem")
-    public ResponseEntity<CartItem> addToCart(@RequestBody CartItem cartItem) {
-        CartItem savedCartItem = cartService.addToCart(cartItem);
-        return ResponseEntity.ok(savedCartItem);
+    public ResponseEntity<OrderItem> addToCart(@RequestBody OrderItem orderItem) {
+        OrderItem savedOrderItem = cartService.addToCart(orderItem);
+        return ResponseEntity.ok(savedOrderItem);
     }
 
     @GetMapping("/api/cart-items")
-    public ResponseEntity<List<CartItem>> getAllCartItems() {
-        List<CartItem> cartItems = cartService.getAllCartItems();
-        return ResponseEntity.ok(cartItems);
+    public ResponseEntity<List<OrderItem>> getAllCartItems() {
+        List<OrderItem> orderItems = cartService.getAllCartItems();
+        return ResponseEntity.ok(orderItems);
     }
 
 //    @GetMapping("/{id}")
@@ -44,14 +40,14 @@ public class CartController {
 //    }
 
     @PutMapping("/api/updatedCartItem")
-    public ResponseEntity<CartItem> updateCartItem(@RequestBody CartItem cartItem) {
-        cartService.updateCartItem(cartItem);
-        return ResponseEntity.ok(cartItem);
+    public ResponseEntity<OrderItem> updateCartItem(@RequestBody OrderItem orderItem) {
+        cartService.updateCartItem(orderItem);
+        return ResponseEntity.ok(orderItem);
     }
     @PutMapping("/api/decrementCartItem")
-    public ResponseEntity<CartItem> decreaseCartItem(@RequestBody CartItem cartItem) {
-        cartService.decreaseCartItem(cartItem);
-        return ResponseEntity.ok(cartItem);
+    public ResponseEntity<OrderItem> decreaseCartItem(@RequestBody OrderItem orderItem) {
+        cartService.decreaseCartItem(orderItem);
+        return ResponseEntity.ok(orderItem);
     }
 
     @DeleteMapping("/api/deleteCartItem/{id}")

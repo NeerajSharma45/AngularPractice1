@@ -11,8 +11,10 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit{
-  // product: Product = { id: 1, name: 'Acer Nitro 5', description: 'Gaming laptop', unitPrice: 75000, imageUrl: '../../../assets/laptop.jpeg', unitsInStock: 10, ratings: 5}
+
   product: Product = { id: 0, name: '', description: '', unitPrice: 0, imageUrl: '', unitsInStock: 0, ratings: 0};
+
+  productQuantity: number = 0;
 
   constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartService) {  }
 
@@ -35,5 +37,17 @@ export class ProductDetailsComponent implements OnInit{
     let cartItem = new CartItem(product);
 
     this.cartService.addToCart(cartItem);
+  }
+
+  decrementQuantity(product: Product) {
+    let theCartItem = new CartItem(product);
+
+    this.cartService.decrementQuantity(theCartItem);
+  }
+
+  getProductQuantity(productId: number) {
+    this.productQuantity = this.cartService.getCartItemQuantity(productId);
+    
+    return this.productQuantity;
   }
 }

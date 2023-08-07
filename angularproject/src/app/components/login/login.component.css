@@ -20,6 +20,8 @@
   padding: 10px;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .login-header h2 {
